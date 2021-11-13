@@ -1,0 +1,11 @@
+.navbar {
+    border-bottom:  #6a41a1 solid 1px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 0 50px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+

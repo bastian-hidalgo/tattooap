@@ -1,0 +1,11 @@
+
+.btn-home {
+    background-color: aliceblue;
+    width: 15px;
+    height: 15px;
+    color: #fff;
+    border: black;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 12px;
+}
