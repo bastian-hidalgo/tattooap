@@ -6,7 +6,7 @@ import TattooApp from './TattooApp';
 
 ReactDOM.render(
 
-    <Profile />,
+    <TattooApp />,
   
   document.getElementById('root')
 );
