@@ -1,14 +1,17 @@
 import React from 'react'
-import Avatar from '../components/Avatar'
 import Logo from './Logo'
 import './Navbar.css'
+import { SearchField } from './SearchField'
+import { NavBarItems } from './NavBarItems';
 
 
 export const Navbar = () => {
     return (
         <div className='navbar'>
             <Logo />
-            <Avatar />
+            <SearchField />
+            <NavBarItems />
+            
         </div>
     )
 }

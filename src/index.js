@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import Profile from './Profile';
 import TattooApp from './TattooApp';
 
 ReactDOM.render(
 
-    <TattooApp />,
+    <Profile />,
   
   document.getElementById('root')
 );

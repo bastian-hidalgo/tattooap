@@ -1,4 +1,6 @@
 import React from 'react'
+import { HeaderPost } from './HeaderPost'
+import { PostImg } from './PostImg'
 
 
 
@@ -6,7 +8,8 @@ const styles = {
     post: {
         border: 'solid 1px #6a41a1',
         margin: '15px',
-        width: '610px'
+        width: '610px',
+        borderRadius: '5px',
     }
 }
 
@@ -14,7 +17,8 @@ export const Post = () => {
     return (
         <div>
             <div style={styles.post}>
-                <h3>Este es un post</h3>
+                <HeaderPost />
+                <PostImg />
             </div>
         </div>
     )
