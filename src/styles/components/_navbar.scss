@@ -1,0 +1,139 @@
+.navbar{
+    border-bottom:  #6a41a1 solid 1px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 10px 50px;
+    background-color: #060516;
+}
+
+.navbar__container {
+    padding: 0 20px;
+    width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar__logo {
+    color: #fff;
+    padding: 0 10px;
+}
+
+.navbar__search {
+    color: #fff;
+    display: flex;
+}
+
+.navbar__search-input {
+    border: none;
+    border-bottom: 1px solid #6a41a1;
+    background-color: transparent;
+    margin: 0 10px;
+    width: 200px;
+    color: #fff;
+
+    &:focus {
+        outline: none;
+    }
+    
+}
+
+.navbar__items {
+    align-items: flex-start;
+    display: flex;
+    color: #fff;
+    justify-content: end;
+}
+
+.navbar__items-box{
+    margin: 0 10px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.navbar__container-menu-avatar{
+    display: flex;
+    justify-content: end;
+    width: 1000px;
+    position: absolute;
+    margin-top: 40px;
+    z-index: 1;
+}
+
+.navbar__container-add-post{
+    display: flex;
+    justify-content: center;
+    width: 1000px;
+    position: fixed;
+    margin-top: 40px;
+    z-index: 2;
+}
+
+.navbar__menu-avatar{
+    width: 220px;
+    height: 150px;
+    background-color: #fff;
+    color: #656565;
+    border-radius: 10px;
+}
+.navbar__menu-avatar-items {
+    display: flex;
+    align-items: center;
+    padding: 10px 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #656565;
+    text-decoration: none;
+    color: #656565;
+}
+
+.navbar__add-post {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    justify-content: center;
+    background-color: rgba($color: #000, $alpha: .3);
+    z-index: 2;
+}
+
+.navbar__add-post-card{
+    width: 600px;
+    height: 400px;
+    background-color: #211159 ;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.container-add-post {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    
+
+    input{
+        background-color: transparent;
+        border: none;
+        color: #fff;
+        font-size: 20px;
+        
+        width: 100%;
+        &:focus{
+            outline: none;
+        }
+    }
+}
+
+.navbar__add-post-close {
+    color: #fff;
+    display: flex;
+    justify-content: end;
+    
+}
+
+.closeicon{
+    cursor: pointer;
+}
