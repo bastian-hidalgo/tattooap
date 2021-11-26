@@ -5,7 +5,7 @@ import { Avatar } from '@mui/material'
 
 export const LayoutProfile = () => {
     return (
-        <div className='layout'>
+        <div className='hlayout'>
             <div className='profile__container'>
                 <div className='profile__container-1'>
                     <div className='profile__follow'>

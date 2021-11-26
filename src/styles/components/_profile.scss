@@ -9,6 +9,7 @@
 .profile__container-info{
     background-color: #6a41a1 ;
     padding: 20px 0;
+    display: grid;
     width: 315px;
     display: grid;
     justify-items: center;
@@ -62,7 +63,6 @@
 
 .profile__galery{
     display: flex;
-    justify-content: start;
     flex-wrap: wrap;
 }
 
