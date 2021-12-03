@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>components/auth/RegisterScreen.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AppRouter">AppRouter</a></li><li><a href="global.html#AuthRouter">AuthRouter</a></li><li><a href="global.html#DashboardRoutes">DashboardRoutes</a></li><li><a href="global.html#Georeference">Georeference</a></li><li><a href="global.html#HomeLayout">HomeLayout</a></li><li><a href="global.html#HomeScreen">HomeScreen</a></li><li><a href="global.html#ImgCard">ImgCard</a></li><li><a href="global.html#LayoutProfile">LayoutProfile</a></li><li><a href="global.html#LoginScreen">LoginScreen</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#NavbarAddPost">NavbarAddPost</a></li><li><a href="global.html#NavbarAvatarMenu">NavbarAvatarMenu</a></li><li><a href="global.html#NavbarItems">NavbarItems</a></li><li><a href="global.html#Post">Post</a></li><li><a href="global.html#Posts">Posts</a></li><li><a href="global.html#ProfileConfigScreen">ProfileConfigScreen</a></li><li><a href="global.html#ProfileGalery">ProfileGalery</a></li><li><a href="global.html#ProfileOptions">ProfileOptions</a></li><li><a href="global.html#ProfileScreen">ProfileScreen</a></li><li><a href="global.html#RegisterScreen">RegisterScreen</a></li><li><a href="global.html#SelectList">SelectList</a></li><li><a href="global.html#TattooApp">TattooApp</a></li><li><a href="global.html#useForm">useForm</a></li><li><a href="global.html#UserGeoreference">UserGeoreference</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">components/auth/RegisterScreen.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react'
+import { Link } from 'react-router-dom';
+import { useForm } from '../../hooks/useForm';
+import { InputGender } from './InputGender';
+
+import { SelectList } from './SelectList'
+
+/**
+ * RegisterScreen es la página de registro que contiene todo el formulario y además contiene el estado inicial de los valores del formulario
+ * @returns {DOMElement}
+ */
+
+export const RegisterScreen = () => {
+
+
+
+    // Hook - useForm
+    const [formValues, handleInputChange] = useForm({
+        name: '',
+        username: '',
+        age: '',
+        gender: '',
+        email: '',
+        repeatEmail: '',
+        region: '',
+        comuna: '',
+        address: '',
+        password: '',
+        repeatPassword: '',
+        userType: ''
+    });
+    const { name, username, age, gender, region, comuna, address, email, repeatEmail, password, repeatPassword, userType } = formValues;
+
+    console.log(formValues)
+
+    // Login de usuario
+    const handleLogin = (e) => {
+        e.preventDefault()
+    }
+    return (
+        &lt;div>
+            &lt;h3 className='auth__title'>Registro&lt;/h3>
+            &lt;form onSubmit={handleLogin}>
+                &lt;input
+                    className='auth__input'
+                    type='text'
+                    placeholder='Nombre completo'
+                    name='name'
+                    autoComplete='off'
+                    value={name}
+                    onChange={handleInputChange}
+                />
+                &lt;input
+                    className='auth__input'
+                    type='text'
+                    placeholder='Nombre de usuario'
+                    name='username'
+                    autoComplete='off'
+                    value={username}
+                    onChange={handleInputChange}
+                />
+                &lt;input
+                    className='auth__input'
+                    type='text'
+                    placeholder='Edad'
+                    name='age'
+                    autoComplete='off'
+                    value={age}
+                    onChange={handleInputChange}
+                />
+
+                &lt;InputGender gender={gender} handleInputChange={handleInputChange} />
+                &lt;SelectList region={region} comuna={comuna} userType={userType} handleInputChange={handleInputChange} />
+
+                
+
+
+                &lt;input
+                    className='auth__input'
+                    type='text'
+                    placeholder='Dirección'
+                    name='address'
+                    autoComplete='off'
+                    value={address}
+                    onChange={handleInputChange}
+                />
+                &lt;input
+                    className='auth__input'
+                    type='email'
+                    placeholder='Correo'
+                    name='email'
+                    autoComplete='off'
+                    value={email}
+                    onChange={handleInputChange}
+                />
+                &lt;input
+                    className='auth__input'
+                    type='email'
+                    placeholder='Repetir correo'
+                    name='repeatEmail'
+                    autoComplete='off'
+                    value={repeatEmail}
+                    onChange={handleInputChange}
+                />
+
+                &lt;input
+                    className='auth__input'
+                    type='password'
+                    placeholder='Contraseña'
+                    name='password'
+                    autoComplete='off'
+                    value={password}
+                    onChange={handleInputChange}
+                />
+                &lt;input
+                    className='auth__input'
+                    type='password'
+                    placeholder='Repetir contraseña'
+                    name='repeatPassword'
+                    autoComplete='off'
+                    value={repeatPassword}
+                    onChange={handleInputChange}
+                />
+
+                &lt;button
+                    className='btn btn-primary btn-block'
+                    type='submit'
+                >
+                    Registrarse
+                &lt;/button>
+                {/** Botón de Google */}
+                &lt;div className='auth__social-networks'>
+                    &lt;p>Login with social networks&lt;/p>
+
+                    &lt;div
+                        className="google-btn"
+                    >
+                        &lt;div className="google-icon-wrapper">
+                            &lt;img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" />
+                        &lt;/div>
+                        &lt;p className="btn-text">
+                            &lt;b>Iniciar con google&lt;/b>
+                        &lt;/p>
+                    &lt;/div>
+                &lt;/div>
+
+                &lt;Link to='/auth/login' className='link'>
+                    ¿Ya tienes una cuenta?
+                &lt;/Link>
+            &lt;/form>
+        &lt;/div>
+    )
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Fri Dec 03 2021 00:06:18 GMT-0300 (hora de verano de Chile) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

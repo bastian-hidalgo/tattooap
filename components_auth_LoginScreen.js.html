@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>components/auth/LoginScreen.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AppRouter">AppRouter</a></li><li><a href="global.html#AuthRouter">AuthRouter</a></li><li><a href="global.html#DashboardRoutes">DashboardRoutes</a></li><li><a href="global.html#Georeference">Georeference</a></li><li><a href="global.html#HomeLayout">HomeLayout</a></li><li><a href="global.html#HomeScreen">HomeScreen</a></li><li><a href="global.html#ImgCard">ImgCard</a></li><li><a href="global.html#LayoutProfile">LayoutProfile</a></li><li><a href="global.html#LoginScreen">LoginScreen</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#NavbarAddPost">NavbarAddPost</a></li><li><a href="global.html#NavbarAvatarMenu">NavbarAvatarMenu</a></li><li><a href="global.html#NavbarItems">NavbarItems</a></li><li><a href="global.html#Post">Post</a></li><li><a href="global.html#Posts">Posts</a></li><li><a href="global.html#ProfileConfigScreen">ProfileConfigScreen</a></li><li><a href="global.html#ProfileGalery">ProfileGalery</a></li><li><a href="global.html#ProfileOptions">ProfileOptions</a></li><li><a href="global.html#ProfileScreen">ProfileScreen</a></li><li><a href="global.html#RegisterScreen">RegisterScreen</a></li><li><a href="global.html#SelectList">SelectList</a></li><li><a href="global.html#TattooApp">TattooApp</a></li><li><a href="global.html#useForm">useForm</a></li><li><a href="global.html#UserGeoreference">UserGeoreference</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">components/auth/LoginScreen.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react'
+import { Link } from 'react-router-dom';
+import { useForm } from '../../hooks/useForm'
+
+/**
+ * LoginScreen es la página principal que contiene el formulario de inicio de sesión.
+ * Se utiliza el hook useForm para tener control del formulario
+ * @returns {DOMElement}
+ */
+
+export const LoginScreen = () => {
+
+    // Hook - useForm
+    const [formValues, handleInputChange] = useForm({
+        email: '',
+        password: '',
+    });
+    const {email, password} = formValues;
+
+    // Login de usuario
+    const handleLogin = (e) => {
+        e.preventDefault()
+    }
+
+    return (
+        &lt;>
+            &lt;h3 className='auth__title'>Login&lt;/h3>
+            &lt;form onSubmit={ handleLogin }>
+                &lt;input 
+                    className='auth__input'
+                    type='email'
+                    placeholder='Correo'
+                    name='email'
+                    autoComplete='off'
+                    value={email}
+                    onChange={handleInputChange}
+                />
+
+                &lt;input 
+                    className='auth__input'
+                    type='password'
+                    placeholder='Contraseña'
+                    name='password'
+                    autoComplete='off'
+                    value={password}
+                    onChange={handleInputChange}
+                />
+
+                &lt;button
+                    className='btn btn-primary btn-block'
+                    type='submit'
+                >
+                    Iniciar sesión
+                &lt;/button>
+                {/** Boton de Google */}
+                &lt;div className='auth__social-networks'>
+                    &lt;p>Login with social networks&lt;/p>
+
+                    &lt;div
+                        className="google-btn"
+                    >
+                        &lt;div className="google-icon-wrapper">
+                            &lt;img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" />
+                        &lt;/div>
+                        &lt;p className="btn-text">
+                            &lt;b>Sign in with google&lt;/b>
+                        &lt;/p>
+                    &lt;/div>
+                &lt;/div>
+
+                &lt;Link to='/auth/register' className='link'>
+                    Crear una nueva cuenta
+                &lt;/Link>
+            &lt;/form>
+        &lt;/>
+    )
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Fri Dec 03 2021 00:06:18 GMT-0300 (hora de verano de Chile) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>
