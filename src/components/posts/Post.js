@@ -1,6 +1,11 @@
 import React from 'react'
 import { Avatar } from '@mui/material'
 
+/**
+ * Functional component que retorna el modelo de una publicación al estilo Post
+ * @returns {DOMElement}
+ */
+
 export const Post = () => {
 
     const img = '/img/drstone.jpg'

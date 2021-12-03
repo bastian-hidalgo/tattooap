@@ -4,6 +4,10 @@ import { ProfileConfigScreen } from '../components/profile/ProfileConfigScreen';
 import { ProfileScreen } from '../components/profile/ProfileScreen';
 import { Routes, Route } from "react-router-dom";
 
+/**
+ * 
+ * Functional component que contiene las rutas de la navegación de la aplicación
+ */
 export const DashboardRoutes = () => {
     return (
         <div>

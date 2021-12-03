@@ -1,6 +1,11 @@
 import React from 'react'
 import Avatar from '@mui/material/Avatar';
 
+/**
+ * Functional component que retorna en el HomeLayout cada usuario cercano
+ * @returns {DOMElement}
+ */
+
 export const UserGeoreference = () => {
     return (
         <div className='usergeo__geo' >

@@ -5,6 +5,11 @@ import { InputGender } from './InputGender';
 
 import { SelectList } from './SelectList'
 
+/**
+ * RegisterScreen es la página de registro que contiene todo el formulario y además contiene el estado inicial de los valores del formulario
+ * @returns {DOMElement}
+ */
+
 export const RegisterScreen = () => {
 
 
@@ -123,7 +128,7 @@ export const RegisterScreen = () => {
                 >
                     Registrarse
                 </button>
-
+                {/** Botón de Google */}
                 <div className='auth__social-networks'>
                     <p>Login with social networks</p>
 

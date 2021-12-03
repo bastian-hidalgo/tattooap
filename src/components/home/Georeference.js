@@ -1,6 +1,11 @@
 import React from 'react'
 import { UserGeoreference } from './UserGeoreference'
 
+/**
+ * Functional component que contiene todos los usuarios cercanos
+ * @returns {DOMElement}
+ */
+
 export const Georeference = () => {
     const styles = {
         hr: {

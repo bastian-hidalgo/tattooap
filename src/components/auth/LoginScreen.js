@@ -2,6 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm'
 
+/**
+ * LoginScreen es la página principal que contiene el formulario de inicio de sesión.
+ * Se utiliza el hook useForm para tener control del formulario
+ * @returns {DOMElement}
+ */
+
 export const LoginScreen = () => {
 
     // Hook - useForm
@@ -46,7 +52,7 @@ export const LoginScreen = () => {
                 >
                     Iniciar sesión
                 </button>
-
+                {/** Boton de Google */}
                 <div className='auth__social-networks'>
                     <p>Login with social networks</p>
 

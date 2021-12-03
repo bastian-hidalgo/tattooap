@@ -6,7 +6,12 @@ import ControlPointIcon from '@mui/icons-material/ControlPoint';
 import { NavLink } from 'react-router-dom'
 import { NavbarAvatarMenu } from './NavbarAvatarMenu';
 
-
+/**
+ * Functional component que contiene los menús del navegador como íconos.
+ * Este recibe los parámetros de Navbar para mostrar el componente de submenú
+ * @param {*} param0 
+ * @returns {DOMElement}
+ */
 
 export const NavbarItems = ({showAddPost, setShowAddPost}) => {
 

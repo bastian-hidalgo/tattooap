@@ -2,6 +2,11 @@ import React from 'react'
 import { Georeference } from './Georeference'
 import { Posts } from '../posts/Posts'
 
+/**
+ * Functional component que contiene toda la información de la página de inicio y retorna cada componente
+ * @returns {DOMElement}
+ */
+
 export const HomeLayout = () => {
     return (
         <div>

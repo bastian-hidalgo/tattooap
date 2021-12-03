@@ -4,6 +4,8 @@ import SettingsIcon from '@mui/icons-material/Settings';
 
 import { Link } from 'react-router-dom'
 
+/** Functional component que contiene el submenú del NavbarItems Perfil */
+
 export const NavbarAvatarMenu = () => {
     return (
         <div className='navbar__menu-avatar'>

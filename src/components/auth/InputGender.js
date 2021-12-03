@@ -1,7 +1,11 @@
 import { FormControl, InputLabel, MenuItem, OutlinedInput, Select } from '@mui/material'
 import React from 'react'
 
+// Functional component: Contiene formulario de registro sobre el género
+
 export const InputGender = ({gender, handleInputChange}) => {
+
+    {/** valores del select gender en un array*/}
 
     const genders = ['Femenino', 'Masculino', 'Prefiero no decir']
 
@@ -24,6 +28,7 @@ export const InputGender = ({gender, handleInputChange}) => {
                     input={<OutlinedInput label="gender" />}
                     
                 >
+                    {/** mapeo de cada género que existe en el array */}
                     {genders.map((gender) => (
                         <MenuItem
                             key={gender}
@@ -37,3 +42,5 @@ export const InputGender = ({gender, handleInputChange}) => {
         </div>
     )
 }
+
+// Datos de salida: Select input con los géneros

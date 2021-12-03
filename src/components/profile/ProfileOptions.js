@@ -1,5 +1,10 @@
 import React from 'react'
 
+/**
+ * Functional component que contiene las opciones de menú en el perfíl de usuario
+ * @returns {DOMElement}
+ */
+
 export const ProfileOptions = () => {
     return (
         <div className='profile__profile-options' >

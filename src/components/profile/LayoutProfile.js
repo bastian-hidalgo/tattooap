@@ -3,6 +3,11 @@ import { ProfileGalery } from './ProfileGalery'
 import { ProfileOptions } from './ProfileOptions'
 import { Avatar } from '@mui/material'
 
+/**
+ * Functional component que retorna el contenedor del perfíl de usuario
+ * @returns {DOMElement}
+ */
+
 export const LayoutProfile = () => {
     return (
         <div className='hlayout'>
