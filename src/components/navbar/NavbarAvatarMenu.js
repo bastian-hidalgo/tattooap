@@ -12,11 +12,11 @@ export const NavbarAvatarMenu = () => {
         <div className='navbar__menu-avatar'>
             <Link className='navbar__menu-avatar-items' to='/profile'>
                 <Fingerprint />
-                <a>Registrarme</a>
+                <p>Registrarme</p>
             </Link>
             <Link className='navbar__menu-avatar-items' to='/profile'>
                 <PersonIcon />
-                <a>Iniciar Sesión</a>
+                <p>Iniciar Sesión</p>
             </Link>
             <Link className='navbar__menu-avatar-items' to='/config'>
                 <SettingsIcon />
