@@ -1,6 +1,7 @@
 import React from 'react'
-import SearchIcon from '@mui/icons-material/Search';
 import { NavbarItems } from './NavbarItems';
+
+import Searchbar from './../searchbar';
 
 /**
  * Functional component que retorna el la barra de navegación.
@@ -19,8 +20,7 @@ export const Navbar = ({showAddPost, setShowAddPost}) => {
                         <h2>TattooApp</h2>
                     </div>
                     <div className='navbar__search'>
-                        <input className='navbar__search-input'></input>
-                        <SearchIcon />
+                        <Searchbar />
                     </div>
                     <NavbarItems showAddPost={showAddPost} setShowAddPost={setShowAddPost}/>
                 </div>

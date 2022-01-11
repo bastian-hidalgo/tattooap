@@ -1,0 +1,32 @@
+.results__container {
+  align-items: flex-start;
+  background-color: #555;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 100px;
+  margin: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 40px;
+  width: 220px;
+}
+
+.results__result {
+  align-items: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  padding: 10px;
+  transition: all ease 0.3s;
+  width: 100%;
+
+  &:hover {
+    background: #333;
+  }
+
+  h5 {
+    margin-left: 10px;
+  }
+}

@@ -6,19 +6,16 @@ import { Avatar } from '@mui/material'
  * @returns {DOMElement}
  */
 
-export const Post = () => {
-
-    const img = '/img/drstone.jpg'
-
+export const Post = ({data: { author, img, profile_img, title}}) => {
     return (
         <div>
             <div className='posts__post'>
                 <div className='posts__post-header' >
                     <div className='posts__post-box' >
-                        <Avatar sx={{ width: 24, height: 24 }} />
+                        <Avatar src={profile_img} sx={{ width: 24, height: 24 }} />
                     </div>
                     <div className='posts__post-box' >
-                        <h5>Rockabilly.50</h5>
+                        <h5>{author}</h5>
                     </div>
                 </div>
 
@@ -27,7 +24,7 @@ export const Post = () => {
                 </div>
 
                 <div className='posts__post-description'>
-                    <p>Tatuaje de Dr Stone</p>
+                    <p>{title}</p>
                 </div>
             </div>
         </div>

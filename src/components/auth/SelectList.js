@@ -81,9 +81,9 @@ export const SelectList = ({ region, comuna, userType, handleInputChange }) => {
             <FormControl component="fieldset">
                 <FormLabel component="legend">Tipo de usuario</FormLabel>
                 <RadioGroup
-                    row aria-label="gender"
-                    name="row-radio-buttons-group"
+                    row 
                     aria-label="gender"
+                    className="row-radio-buttons-group"
                     name="userType"
                     value={userType}
                     onChange={handleInputChange}

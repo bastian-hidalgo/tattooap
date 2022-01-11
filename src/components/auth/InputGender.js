@@ -5,8 +5,6 @@ import React from 'react'
 
 export const InputGender = ({gender, handleInputChange}) => {
 
-    {/** valores del select gender en un array*/}
-
     const genders = ['Femenino', 'Masculino', 'Prefiero no decir']
 
 
@@ -26,7 +24,6 @@ export const InputGender = ({gender, handleInputChange}) => {
                     value={gender}
                     onChange={handleInputChange}
                     input={<OutlinedInput label="gender" />}
-                    
                 >
                     {/** mapeo de cada género que existe en el array */}
                     {genders.map((gender) => (

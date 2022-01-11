@@ -11,14 +11,12 @@ import { AuthRouter } from './AuthRouter';
 */
 
 export const AppRouter = () => {
-    return (
-        <>
-            <Routes>
-                <Route path='/auth/*' element={ <AuthRouter /> } />
-                
-                <Route path="/*" element={ <DashboardRoutes /> } />
-                
-            </Routes>
-        </>
-    )
+  return (
+    <>
+      <Routes>
+        <Route path='/auth/*' element={ <AuthRouter /> } />  
+        <Route path="/*" element={ <DashboardRoutes /> } />  
+      </Routes>
+    </>
+  )
 }
