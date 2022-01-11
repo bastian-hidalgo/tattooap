@@ -8,7 +8,7 @@ import usersActions from '../../store/Users/actions';
 import Results from './components/results/index';
 
 const Searchbar = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit } = useForm();
   const [{users: { users }}, dispatch] = useStore();
   const onSubmit = async(data) => {
       const { data: usersData } = await usersService.getUsersByName(data.name);
