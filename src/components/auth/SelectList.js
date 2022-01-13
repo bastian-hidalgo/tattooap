@@ -1,6 +1,6 @@
 import { FormControl, FormControlLabel, FormLabel, InputLabel, MenuItem, OutlinedInput, Radio, RadioGroup, Select } from '@mui/material'
-import data from '../../data/states.json'
-import React from 'react'
+import regioneYComunas from '../../data/regiones_y_comunas.json';
+import React, { useState } from 'react'
 
 
 /**
@@ -11,20 +11,9 @@ import React from 'react'
  * @returns {DOMElement}
  */
 
-export const SelectList = ({ region, comuna, userType, handleInputChange }) => {
-
-    // --------------------------------------------------------------------------------
-    // --------------------------------------------------------------------------------
-
-    const [states] = data;
-    const { regions } = states;
-
-
-
-
-
-
-
+export const SelectList = ({ comunaLocal, handleInputChange }) => {
+    const [region, setRegion ] = useState(null);
+    const handleSetRegion = (e) => setRegion(e.target.value);
     return (
         <div>
             {/** Select que contiene las regiones */}
@@ -35,16 +24,16 @@ export const SelectList = ({ region, comuna, userType, handleInputChange }) => {
                     id="demo-region"
                     name='region'
                     value={region}
-                    onChange={handleInputChange}
+                    onChange={handleSetRegion}
                     input={<OutlinedInput label="region" />}
 
                 >
-                    {regions.map(r => (
+                    {regioneYComunas.regiones.map(r => (
                         <MenuItem
-                            key={r.name}
-                            value={r.name}
+                            key={r.region}
+                            value={r.region}
                         >
-                            {r.name}
+                            {r.region}
                         </MenuItem>
                     ))}
                 </Select>
@@ -58,41 +47,25 @@ export const SelectList = ({ region, comuna, userType, handleInputChange }) => {
                     <Select
                         labelId="demo-comuna-label"
                         id="demo-comuna"
-                        name='comuna'
-                        value={comuna}
+                        name='comuna_local'
+                        value={comunaLocal}
                         onChange={handleInputChange}
                         input={<OutlinedInput label="comuna" />}
                     >
                         {
 
-                            regions.filter(r => r.name === region).map(r => r.communes.map(comuna =>
+                            regioneYComunas.regiones.filter(r => r.region === region).map(r => r.comunas.map(comuna =>
                                 <MenuItem
-                                    key={comuna.name}
-                                    value={comuna.name}
+                                    key={comuna}
+                                    value={comuna}
                                 >
-                                    {comuna.name}
+                                    {comuna}
                                 </MenuItem>
                             ))
                         }
                     </Select>
                 </FormControl>
             }
-            {/** Select que contiene el sexo de la persona */}
-            <FormControl component="fieldset">
-                <FormLabel component="legend">Tipo de usuario</FormLabel>
-                <RadioGroup
-                    row 
-                    aria-label="gender"
-                    className="row-radio-buttons-group"
-                    name="userType"
-                    value={userType}
-                    onChange={handleInputChange}
-                >
-                    <FormControlLabel value="personaNatural" control={<Radio />} label="Persona natural" />
-                    <FormControlLabel value="tatuador" control={<Radio />} label="Tatuador" />
-                </RadioGroup>
-            </FormControl>
-
         </div>
     )
 }

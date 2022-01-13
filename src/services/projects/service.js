@@ -1,7 +1,7 @@
 import { api } from '../../config/api';
 
 const projectsService = {
-  getProjects: () => api.get('/projects'),
+  getProjects: () => api.get('/proyectos'),
 };
 
 export default projectsService;

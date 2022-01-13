@@ -10,7 +10,6 @@ const Results = ({ data }) => {
   const [isOpen, setIsOpen] = useState(data.length > 0);
   const [, dispatch] = useStore();
   const handleCloseResults = () => {
-    console.log('debo cerrarme');
     dispatch(usersActions.getUsersByName([]));
     setIsOpen(!isOpen);
   };

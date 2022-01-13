@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import { InputGender } from './InputGender';
 
+import { useStore } from '../../store/Store';
+import usersActions from '../../store/Users/actions';
+
 import { SelectList } from './SelectList'
 
 /**
@@ -11,43 +14,49 @@ import { SelectList } from './SelectList'
  */
 
 export const RegisterScreen = () => {
-
-
+    const [, dispatch] = useStore();
 
     // Hook - useForm
     const [formValues, handleInputChange] = useForm({
-        name: '',
+        nombre: '',
         username: '',
-        age: '',
+        edad: '',
         gender: '',
-        email: '',
-        repeatEmail: '',
-        region: '',
-        comuna: '',
-        address: '',
+        comuna_local: '',
+        direccion_local: '',
+        correo: '',
+        rol: 'Tatuador',
         password: '',
-        repeatPassword: '',
-        userType: ''
+        profileImg: ''
     });
-    const { name, username, age, gender, region, comuna, address, email, repeatEmail, password, repeatPassword, userType } = formValues;
 
-    console.log(formValues)
+    const { 
+        nombre,
+        username,
+        edad,
+        gender,
+        comuna_local,
+        direccion_local,
+        correo,
+        password,
+    } = formValues;
 
-    // Login de usuario
-    const handleLogin = (e) => {
-        e.preventDefault()
-    }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(usersActions.createUser(formValues));
+    };
+
     return (
         <div>
             <h3 className='auth__title'>Registro</h3>
-            <form onSubmit={handleLogin}>
+            <form onSubmit={handleSubmit}>
                 <input
                     className='auth__input'
                     type='text'
                     placeholder='Nombre completo'
-                    name='name'
+                    name='nombre'
                     autoComplete='off'
-                    value={name}
+                    value={nombre}
                     onChange={handleInputChange}
                 />
                 <input
@@ -63,46 +72,31 @@ export const RegisterScreen = () => {
                     className='auth__input'
                     type='text'
                     placeholder='Edad'
-                    name='age'
+                    name='edad'
                     autoComplete='off'
-                    value={age}
+                    value={edad}
                     onChange={handleInputChange}
                 />
-
                 <InputGender gender={gender} handleInputChange={handleInputChange} />
-                <SelectList region={region} comuna={comuna} userType={userType} handleInputChange={handleInputChange} />
-
-                
-
-
+                <SelectList comunaLocal={comuna_local} handleInputChange={handleInputChange} />
                 <input
                     className='auth__input'
                     type='text'
                     placeholder='Dirección'
-                    name='address'
+                    name='direccion_local'
                     autoComplete='off'
-                    value={address}
+                    value={direccion_local}
                     onChange={handleInputChange}
                 />
                 <input
                     className='auth__input'
                     type='email'
                     placeholder='Correo'
-                    name='email'
+                    name='correo'
                     autoComplete='off'
-                    value={email}
+                    value={correo}
                     onChange={handleInputChange}
                 />
-                <input
-                    className='auth__input'
-                    type='email'
-                    placeholder='Repetir correo'
-                    name='repeatEmail'
-                    autoComplete='off'
-                    value={repeatEmail}
-                    onChange={handleInputChange}
-                />
-
                 <input
                     className='auth__input'
                     type='password'
@@ -112,15 +106,6 @@ export const RegisterScreen = () => {
                     value={password}
                     onChange={handleInputChange}
                 />
-                <input
-                    className='auth__input'
-                    type='password'
-                    placeholder='Repetir contraseña'
-                    name='repeatPassword'
-                    autoComplete='off'
-                    value={repeatPassword}
-                    onChange={handleInputChange}
-                />
 
                 <button
                     className='btn btn-primary btn-block'
@@ -128,21 +113,6 @@ export const RegisterScreen = () => {
                 >
                     Registrarse
                 </button>
-                {/** Botón de Google */}
-                <div className='auth__social-networks'>
-                    <p>Login with social networks</p>
-
-                    <div
-                        className="google-btn"
-                    >
-                        <div className="google-icon-wrapper">
-                            <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" />
-                        </div>
-                        <p className="btn-text">
-                            <b>Iniciar con google</b>
-                        </p>
-                    </div>
-                </div>
 
                 <Link to='/auth/login' className='link'>
                     ¿Ya tienes una cuenta?

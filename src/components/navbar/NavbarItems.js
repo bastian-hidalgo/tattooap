@@ -5,6 +5,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import ControlPointIcon from '@mui/icons-material/ControlPoint';
 import { NavLink } from 'react-router-dom'
 import { NavbarAvatarMenu } from './NavbarAvatarMenu';
+import { useStore } from '../../store/Store';
 
 /**
  * Functional component que contiene los menús del navegador como íconos.
@@ -14,18 +15,20 @@ import { NavbarAvatarMenu } from './NavbarAvatarMenu';
  */
 
 export const NavbarItems = ({showAddPost, setShowAddPost}) => {
-
-    const [showMenu, setShowMenu] = useState(false)
+    const [{accessToken: {token}}] = useStore();
+    const [showMenu, setShowMenu] = useState(false);
 
     return (
         <div className='navbar__items'>
-            <div className='navbar__items-box' >
-                <ControlPointIcon sx={{ width: 25, height: 25 }}
-                    onClick={ () => (
-                        setShowAddPost(!showAddPost)
-                    )}
-                />
-            </div>
+            {token && (
+                <div className='navbar__items-box' >
+                    <ControlPointIcon sx={{ width: 25, height: 25 }}
+                        onClick={ () => (
+                            setShowAddPost(!showAddPost)
+                        )}
+                    />
+                </div>
+            )}
 
             <NavLink 
                 className='navbar__items-box'

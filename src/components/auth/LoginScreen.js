@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { useForm } from '../../hooks/useForm'
+import { useForm } from '../../hooks/useForm';
+import { useStore } from '../../store/Store';
+import usersActions from '../../store/Users/actions';
 
 /**
  * LoginScreen es la página principal que contiene el formulario de inicio de sesión.
@@ -9,17 +11,18 @@ import { useForm } from '../../hooks/useForm'
  */
 
 export const LoginScreen = () => {
-
+    const [, dispatch] = useStore();
     // Hook - useForm
     const [formValues, handleInputChange] = useForm({
-        email: '',
+        correo: '',
         password: '',
     });
-    const {email, password} = formValues;
+    const {correo, password} = formValues;
 
     // Login de usuario
     const handleLogin = (e) => {
         e.preventDefault()
+        dispatch(usersActions.loginUser(formValues));
     }
 
     return (
@@ -30,9 +33,9 @@ export const LoginScreen = () => {
                     className='auth__input'
                     type='email'
                     placeholder='Correo'
-                    name='email'
+                    name='correo'
                     autoComplete='off'
-                    value={email}
+                    value={correo}
                     onChange={handleInputChange}
                 />
 
@@ -47,28 +50,13 @@ export const LoginScreen = () => {
                 />
 
                 <button
-                    className='btn btn-primary btn-block'
+                    className='btn btn-primary btn-block mb-5'
                     type='submit'
                 >
                     Iniciar sesión
                 </button>
-                {/** Boton de Google */}
-                <div className='auth__social-networks'>
-                    <p>Login with social networks</p>
 
-                    <div
-                        className="google-btn"
-                    >
-                        <div className="google-icon-wrapper">
-                            <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" />
-                        </div>
-                        <p className="btn-text">
-                            <b>Sign in with google</b>
-                        </p>
-                    </div>
-                </div>
-
-                <Link to='/auth/register' className='link'>
+                <Link to='/auth/register' className='link btn btn-primary btn-block'>
                     Crear una nueva cuenta
                 </Link>
             </form>

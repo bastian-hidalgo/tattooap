@@ -1,7 +1,10 @@
 import React from 'react';
+import LocalStorage from './../services/LocalStorageService';
 
 import { projectsReducer as projects } from './Projects/reducer';
 import { usersReducer as users } from './Users/reducer';
+
+const accessToken = LocalStorage.getAccessToken();
 
 const Store = React.createContext();
 Store.displayName = 'Store';
@@ -18,6 +21,7 @@ const combineReducers = (slices) => (state, action) =>
 const initialState = {
   projects: [],
   users: [],
+  accessToken: accessToken || {token: null}
 };
 
 const rootReducer = combineReducers({
