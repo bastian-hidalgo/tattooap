@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavbarItems } from './NavbarItems';
+import { NavLink } from 'react-router-dom'
 
 import Searchbar from './../searchbar';
 
@@ -17,7 +18,12 @@ export const Navbar = ({showAddPost, setShowAddPost}) => {
             <div className='navbar'>
                 <div className='navbar__container'>
                     <div className='navbar__logo'>
-                        <h2>TattooApp</h2>
+                    <NavLink 
+                        className='navbar__items-box'
+                        end
+                        to='/'
+                    ><h2>Way Tattoo</h2>
+                    </NavLink>
                     </div>
                     <div className='navbar__search'>
                         <Searchbar />

@@ -51,7 +51,6 @@ export const usersReducer = (state = initialState, action) => {
         window.setTimeout(() =>
           window.location.href = "/", 3000);
       }).catch((err) => {
-        console.log(err);
         typeof err === 'object' ? err.map((error) => toast.error(error.msg)) : toast.error(err);
       });
     break

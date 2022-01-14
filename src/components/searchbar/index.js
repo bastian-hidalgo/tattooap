@@ -20,7 +20,7 @@ const Searchbar = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <input className="navbar__search-input" type="text" placeholder="Buscar" {...register("name", {required: true})} />
       <SearchIcon onClick={handleSubmit(onSubmit)} />
-      {users && users.length > 0 && <Results data={users} />}
+      {users?.usuarios && users?.usuarios.length > 0 && <Results data={users?.usuarios} />}
     </form>
   )
 };

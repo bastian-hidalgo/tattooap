@@ -23,7 +23,7 @@ export const NavbarAddPost = ({showAddPost, setShowAddPost}) => {
                             setShowAddPost(!showAddPost)
                         } }
                     />
-                    <ImageUploader />
+                    <ImageUploader setShowAddPost={setShowAddPost}/>
                 </div>
             </div>
         </div>

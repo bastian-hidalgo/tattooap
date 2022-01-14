@@ -9,7 +9,7 @@ export const api = create({
 });
 
 if(accessToken){
-  api.setHeader('x-token', accessToken);
+  api.setHeader('x-token', accessToken.token);
 }
 
 export default api;

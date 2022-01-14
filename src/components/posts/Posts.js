@@ -20,7 +20,7 @@ export const Posts = () => {
     return (
         <div className='posts__posts'>
             {projects && projects?.map((project) => (
-                <Post key={project.id} data={project} />
+                <Post key={project['_id']} data={project} />
             ))}
         </div>
     )

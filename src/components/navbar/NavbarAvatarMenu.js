@@ -25,7 +25,7 @@ export const NavbarAvatarMenu = () => {
                 </>
             )}
             {token && (
-                <Link className='navbar__menu-avatar-items' to='/config'>
+                <Link className='navbar__menu-avatar-items' to='/profile'>
                     <SettingsIcon />
                     <p>Mi perfil</p>
                 </Link>

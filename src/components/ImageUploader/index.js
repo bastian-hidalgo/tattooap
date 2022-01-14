@@ -3,15 +3,18 @@ import ImageUploading from 'react-images-uploading';
 import { useForm } from '../../hooks/useForm';
 import { useStore } from '../../store/Store';
 import projectActions from '../../store/Projects/actions';
+import imgurService from '../../services/imgur/service';
+import projectsService from '../../services/projects/service';
+import { toast } from 'react-toastify';
 
-const ImageUploader = () => {
+const ImageUploader = ({ setShowAddPost }) => {
+  const [uploadingImage, setUploadingImage] = useState(false);
   const [images, setImages] = useState([]);
   const maxNumber = 1;
   const [{accessToken: {usuario}}, dispatch] = useStore();
 
   const onChange = (imageList, addUpdateIndex) => {
     // data for submit
-    console.log(imageList, addUpdateIndex);
     setImages(imageList);
   };
 
@@ -23,31 +26,56 @@ const ImageUploader = () => {
     imgUrl: '',
   });
   const {
-    title,
-    profileImg,
-    idTatuador,
-    tatuador,
-    imgUrl
+    title
   } = formValues;
 
+  const handleUploadImage = (data) => {
+    return new Promise (async (resolve, reject) => {
+      const formData = new FormData();
+      formData.append('image', data.image.split(',')[1]);
+      formData.append('type', 'base64');
+      formData.append('name', data.name);
+      formData.append('title', data.name);
+      const imgData = await imgurService.uploadImg(formData);
+      resolve(imgData);
+    }).then((data) => {
+      return data;
+    });
+  }
+  
+  const postImage = ({ data: {data: {link}}}, data) => {
+    return new Promise (async(resolve, reject) => {
+      const projectData = {
+        title: data.title || data.name,
+        profileImg: data.profileImg,
+        idTatuador: data.idTatuador,
+        tatuador: data.tatuador,
+        imgUrl: link
+      }
+      const newProject = await projectsService.uploadProject(projectData);
+      resolve(newProject);
+    }).then((newProject) => {
+      toast.success('Proyecto subido correctamente');
+      return newProject;
+    })
+  }
+
   const handleUpload = () => {
-    /*
-      title
-      profileImg
-      publishedAt
-      idTatuador
-      tatuador
-      imgUrl
-    */
-    const formData = new FormData();
-    formData.append('upload', {
+    setUploadingImage(true);
+    const data = {
+      ...formValues,
       image: images[0].data_url,
       type: 'base64',
       name: images[0].file.name,
-      title: images[0].file.name
+      title: title,
+    };
+    handleUploadImage(data).then((imagePosted) => {
+      postImage(imagePosted, data).then((newProject) => {
+        dispatch(projectActions.uploadProject(newProject));
+        setShowAddPost(false);
+      });
     });
-    dispatch(projectActions.uploadProject(formData));
-  }
+  };
   return (
     <ImageUploading
       multiple
@@ -80,12 +108,18 @@ const ImageUploader = () => {
           {imageList.map((image, index) => (
             <div key={index} className="image-item">
               <img src={image['data_url']} alt="" width="100" />
-              <input className="post_image_title" type="text" placeholder="Título de la imagen" />
+              <input className="post_image_title" name="title" onChange={handleInputChange} type="text" placeholder="Título de la imagen" />
               <div className="image-item__btn-wrapper">
-                <button className="btn btn-primary mr-1" onClick={() => onImageUpdate(index)}>Actualizar</button>
-                <button className="btn btn-primary mr-1" onClick={() => onImageRemove(index)}>Quitar</button>
-                {imageList.length > 0 && (
-                  <button className="btn btn-primary" onClick={handleUpload}>Subir imagen</button>
+                {!uploadingImage ? (
+                  <>
+                  <button className="btn btn-primary mr-1" onClick={() => onImageUpdate(index)}>Actualizar</button>
+                    <button className="btn btn-primary mr-1" onClick={() => onImageRemove(index)}>Quitar</button>
+                    {imageList.length > 0 && (
+                      <button className="btn btn-primary" onClick={handleUpload}>Subir imagen</button>
+                    )}
+                  </>
+                ) : (
+                  <button className="btn btn-primary" disabled>Subiendo Imagen</button>
                 )}
               </div>
             </div>

@@ -1,76 +1,83 @@
 
-.profile__container{
-    padding: 0 20px;
-    width: 1300px;
-    display: flex;
-    justify-content: center;
+.profile__container {
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+  width: 1300px;
 }
 
-.profile__container-info{
-    background-color: #6a41a1 ;
-    padding: 20px 0;
-    display: grid;
-    width: 315px;
-    display: grid;
-    justify-items: center;
-    height: 100%;
+.profile__container-info {
+  background-color: #6A41A1 ;
+  display: grid;
+  display: grid;
+  height: 100%;
+  justify-items: center;
+  padding: 20px 0;
+  width: 315px;
 }
 
-.profile__container-1{
-    margin: 0 10px;
-    padding: 0 20px;
-    width: 815px;
+.profile__container-1 {
+  margin: 0 10px;
+  padding: 0 20px;
+  width: 815px;
 
-    hr{
-        border-color: #6a41a1;
-    }
+  hr {
+    border-color: #6A41A1;
+  }
 }
 
 .profile__follow {
-    margin-top: 40px;
-    height: 100px;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  height: 100px;
+  justify-content: space-around;
+  margin-top: 40px;
+  width: 100%;
 }
 
-.profile__box{
-    color: #fff;
-    margin: 0 10px;
-    display: flex;
-    align-items: center;
+.profile__box {
+  align-items: center;
+  color: #FFF;
+  display: flex;
+  margin: 0 10px;
 }
 
 .profile__follow-btn {
-    background-color: #bc5cfc;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    color: #fff;
-    font-family: Helvetica, sans-serif;
-    font-size: 1rem;
-    padding: 10px;
+  background-color: #BC5CFC;
+  border: none;
+  border-radius: 5px;
+  color: #FFF;
+  cursor: pointer;
+  font-family: Helvetica, sans-serif;
+  font-size: 1rem;
+  padding: 10px;
 }
 
 .profile__profile-options {
-    margin-top: 15px;
-    color: #fff;
-    height: 40px;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
+  color: #FFF;
+  display: flex;
+  height: 40px;
+  justify-content: space-around;
+  margin-top: 15px;
+  width: 100%;
 }
 
-.profile__galery{
-    display: flex;
-    flex-wrap: wrap;
+.profile__galery {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.profile__img-card{
-    width: 30%;
-    margin-bottom: 20px;
+.profile__img-card {
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  overflow: hidden;
+  padding: 20px;
+  width: 30%;
 
-    img{
-        width: 100%;
-    }
+  img {
+    border-radius: 5px;
+    height: 200px;
+    margin-bottom: 10px;
+    object-fit: cover;
+    width: 200px;
+  }
 }
