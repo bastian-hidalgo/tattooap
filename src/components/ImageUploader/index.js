@@ -39,13 +39,14 @@ const ImageUploader = () => {
       tatuador
       imgUrl
     */
-    const data = {
+    const formData = new FormData();
+    formData.append('upload', {
       image: images[0].data_url,
       type: 'base64',
       name: images[0].file.name,
       title: images[0].file.name
-    };
-    dispatch(projectActions.uploadProject(data));
+    });
+    dispatch(projectActions.uploadProject(formData));
   }
   return (
     <ImageUploading
