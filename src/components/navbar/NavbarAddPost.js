@@ -1,5 +1,7 @@
 import React from 'react'
 import CloseIcon from '@mui/icons-material/Close';
+import { useStore } from '../../store/Store';
+import ImageUploader from '../ImageUploader';
 
 /**
  * Functional component que contiene el menú para publicar un nuevo Post.
@@ -9,6 +11,7 @@ import CloseIcon from '@mui/icons-material/Close';
  */
 
 export const NavbarAddPost = ({showAddPost, setShowAddPost}) => {
+    const [, dispatch] = useStore();
     return (
         <div className='navbar__add-post animate__animated animate__fadeIn'>
             
@@ -20,20 +23,7 @@ export const NavbarAddPost = ({showAddPost, setShowAddPost}) => {
                             setShowAddPost(!showAddPost)
                         } }
                     />
-                </div>
-                <div className='container-add-post'>
-                    <input 
-                        className='mb-5'
-                        placeholder='Descripción'
-                        type='text'
-                        name='description'
-                    />
-                    <hr/>
-
-                    <input
-                        type='file'
-                        name='imagen'
-                    />
+                    <ImageUploader />
                 </div>
             </div>
         </div>

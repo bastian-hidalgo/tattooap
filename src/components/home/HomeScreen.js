@@ -22,7 +22,7 @@ export const HomeScreen = () => {
             <Navbar showAddPost={showAddPost} setShowAddPost={setShowAddPost}/>
             {
                 showAddPost &&
-                <NavbarAddPost showAddPost={showAddPost} setShowAddPost={setShowAddPost}/>
+                    <NavbarAddPost showAddPost={showAddPost} setShowAddPost={setShowAddPost}/>
             }
             <main>
                 <HomeLayout />

@@ -1,6 +1,8 @@
 import { ACTIONS } from './actions';
+import imgurService from '../../services/imgur/service';
 export const initialState = {
-  projects: []
+  projects: [],
+  uploadProject: {}
 };
 
 export const projectsReducer = (state = initialState, action) => {
@@ -9,6 +11,15 @@ export const projectsReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         projects: action.data,
       })
+    }
+    case ACTIONS.UPLOAD_PROJECT : {
+      return new Promise (async (resolve, reject) => {
+        console.log(action.data);
+        const data = await imgurService.uploadImg(action.data);
+        return resolve(data);
+      }).then((data) => {
+        console.log(data);
+      });
     }
     default:
       return state;
