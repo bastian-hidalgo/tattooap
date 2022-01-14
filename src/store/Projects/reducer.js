@@ -1,7 +1,8 @@
 import { ACTIONS } from './actions';
 export const initialState = {
   projects: [],
-  uploadProject: []
+  uploadProject: [],
+  projectsById: []
 };
 
 export const projectsReducer = (state = initialState, action) => {
@@ -10,6 +11,12 @@ export const projectsReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         ...state,
         projects: action.data
+      });
+    }
+    case ACTIONS.GET_PROJECTS_BY_ID : {
+      return Object.assign({}, state, {
+        ...state,
+        projectsById: action.data
       });
     }
     case ACTIONS.UPLOAD_PROJECT : {

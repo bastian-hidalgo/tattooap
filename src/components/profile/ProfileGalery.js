@@ -7,10 +7,10 @@ import { useStore } from '../../store/Store';
  */
 
 export const ProfileGalery = () => {
-    const [{projects: { projects }}] = useStore();
+    const [{projects: { projectsById }}] = useStore();
     return (
         <div className='profile__galery' >
-            {projects && projects?.map((project) => (
+            {projectsById && projectsById?.map((project) => (
                 <ImgCard project={project} />
             ))}
         </div>

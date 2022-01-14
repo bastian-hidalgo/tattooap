@@ -107,7 +107,7 @@ const ImageUploader = ({ setShowAddPost }) => {
           </div>
           {imageList.map((image, index) => (
             <div key={index} className="image-item">
-              <img src={image['data_url']} alt="" width="100" />
+              <img className="post__img_to_upload" src={image['data_url']} alt="" width="100" />
               <input className="post_image_title" name="title" onChange={handleInputChange} type="text" placeholder="Título de la imagen" />
               <div className="image-item__btn-wrapper">
                 {!uploadingImage ? (

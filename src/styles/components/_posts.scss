@@ -88,6 +88,12 @@
   }
 }
 
+.post__img_to_upload {
+  height: 300px;
+  object-fit: cover;
+  width: 300px;
+}
+
 .post_image_title {
   border: none;
   border-radius: 3px;

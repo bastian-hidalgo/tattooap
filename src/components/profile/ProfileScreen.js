@@ -22,7 +22,7 @@ export const ProfileScreen = () => {
             const { data: projectsData } = await projectsService.getProjectsById(accessToken.usuario.uid);
             new Promise ((resolve, reject) => {
                 resolve(projectsData);
-            }).then((data) => dispatch(projectActions.getProjects(data)));
+            }).then((data) => dispatch(projectActions.getProjectsById(data)));
         };
         handleGetData();
     }, [dispatch]);
